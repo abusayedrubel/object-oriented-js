@@ -1,10 +1,8 @@
 // Person Constructor
-function Person(name, age){
+function Person(name, dob){
   this.name = name;
-  this.age = age;
+  this.birthday = new Date(dob);
 }
 
-const value1 = new Person('Sayed', 24);
-const value2 = new Person('Rubel', 23);
-console.log(value1);
-console.log(value2);
+const birth = new Person('sayed', '9-22-1995');
+console.log(birth);
