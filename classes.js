@@ -22,9 +22,17 @@ class Person{
   getsMarried(newLastName){
     this.lastName = newLastName;
   }
+
+  // static method
+  static addNumbers(x,y){
+    return x+y;
+  }
 }
 
 const mary = new Person('Mary', 'Williams', '11-22-1990');
 console.log(mary.calculateAge());
 mary.getsMarried('Thomson');
 console.log(mary.greeting());
+
+//To call a static method you have to use the main class name
+console.log(Person.addNumbers(1,2));
