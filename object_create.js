@@ -14,3 +14,13 @@ mary.lastName = 'Williams';
 mary.age = 30;
 mary.getsMarried('Thomson');
 console.log(mary.greeting());
+
+
+//second way
+const john = Object.create(detailsPrototype,{
+  firstName:{value: 'John'},
+  lastName: {value: 'Snow'},
+  age: {valuel: 32}
+});
+console.log(john);
+console.log(john.greeting());
