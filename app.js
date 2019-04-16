@@ -1,59 +1,45 @@
-// String
-const name1 = 'John';
-const name2 = new String('John');
-//console.log(name1);
-//name2.name = 'Barly';
-//console.log(name2);
+// Object.prototype
+// Person.protype
 
-if(name2==='John'){
-  //console.log('Yes');
-}else{
-  //console.log('No');
+// take a Person Constructor
+function Person(firstName, lastName, dob){
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.birthday = new Date(dob);
+  this.calculateAge1 = function(){
+    const diff = Date.now()-this.birthday.getTime();
+    const getAge = new Date(diff);
+    return Math.abs(getAge.getUTCFullYear()-1970);
+  }
 }
 
-
-// Number
-const num1 = 5;
-//console.log(num1);
-const num2 = new Number(10);
-//console.log(num2);
-
-
-// Boolean
-const bool1 = true;
-//console.log(bool1);
-const bool2 = new Boolean(true);
-//console.log(bool2);
-
-
-
-// Function
-const getSum1 = function(x,y){
-  return x+y;
+//person protype
+Person.prototype.calculateAge2 = function(){
+  const diff = Date.now()-this.birthday.getTime();
+  const getAge = new Date(diff);
+  return Math.abs(getAge.getUTCFullYear()-1970);
 }
-//console.log(getSum1(5,6));
 
-const getSum2 = new Function('x','y','return x+y');
-//console.log(getSum2(5,6));
+// another person prototype
+Person.prototype.getFullName = function(){
+  return `${this.firstName} ${this.lastName}`;
+}
+
+// another person prototype
+Person.prototype.getsMarried = function(lastName){
+  this.lastName = lastName;
+}
+
+const john = new Person('John', 'Snow','10-10-1985');
+const mary = new Person('Mary','Jonson','March 20 1978');
+console.log(mary);
+console.log(mary.calculateAge2());
+console.log(mary.getFullName());
+
+mary.getsMarried('Smith');
+console.log(mary.getFullName());
 
 
-
-// Object
-const obj1 = {name:'Sayed'};
-const obj2 = new Object({name:'Rubel'});
-//console.log(obj2);
-
-
-// Array
-const arr1 = [1,2,3,4,5];
-const arr2 = new Array(1,2,3,4,5);
-//console.log(arr2);
-
-
-
-
-// Regular Expresion
-const re1 = /\w+/;
-const re2 = new RegExp('\\w+');
-console.log(re1);
-console.log(re2);
+// Object own prototype
+console.log(mary.hasOwnProperty('firstName'));
+console.log(mary.hasOwnProperty('calculateAge2()'));
